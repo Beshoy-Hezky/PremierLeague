@@ -10,4 +10,10 @@ import java.util.Optional;
 public interface PlayerRepository extends JpaRepository<Player, String> {
     void deleteByName(String playerName);
     Optional<Player> findByName(String name);
+
+    List<Player> findByTeamIgnoreCaseContaining(String team);
+    List<Player> findByNameIgnoreCaseContaining(String name);
+    List<Player> findByPosIgnoreCaseContaining(String pos);
+    List<Player> findByNationIgnoreCaseContaining(String nation);
+    List<Player> findByTeamIgnoreCaseContainingAndPosIgnoreCaseContaining(String team, String pos);
 }
